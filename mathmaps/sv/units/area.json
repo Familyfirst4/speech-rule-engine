@@ -4,11 +4,6 @@
   },
   {
     "key": "sq",
-    "category": "other",
-    "names": [
-      "sq",
-      "sq."
-    ],
     "mappings": {
       "default": {
         "default": "kvadrat",
@@ -17,31 +12,20 @@
     }
   },
   {
-    "key": "sq in",
+    "key": "sq inch",
     "mappings": {
       "default": {
-        "default": "kvadrat tum",
-        "plural": "kvadrat tum"
+        "default": "kvadrattum",
+        "plural": "kvadrattum"
       }
-    },
-    "category": "area",
-    "names": [
-      "sq in",
-      "sq. in.",
-      "sq inch",
-      "sq. inch"
-    ]
+    }
   },
   {
     "key": "sq rd",
-    "category": "area",
-    "names": [
-      "sq rd",
-      "sq. rd."
-    ],
     "mappings": {
       "default": {
-        "default": ""
+        "default": "kvadrat-rod",
+        "plural": "kvadrat-rods"
       }
     }
   },
@@ -52,12 +36,7 @@
         "default": "kvadrat fot",
         "plural": "kvadrat fot"
       }
-    },
-    "category": "area",
-    "names": [
-      "sq ft",
-      "sq. ft."
-    ]
+    }
   },
   {
     "key": "sq yd",
@@ -66,12 +45,7 @@
         "default": "kvadrat yard",
         "plural": "kvadrat yards"
       }
-    },
-    "category": "area",
-    "names": [
-      "sq yd",
-      "sq. yd."
-    ]
+    }
   },
   {
     "key": "sq mi",
@@ -80,35 +54,19 @@
         "default": "kvadrat mile",
         "plural": "kvadrat miles"
       }
-    },
-    "category": "area",
-    "names": [
-      "sq mi",
-      "sq. mi."
-    ]
+    }
   },
   {
-    "key": "ac",
+    "key": "acr",
     "mappings": {
       "default": {
-        "default": "acre",
-        "plural": "acres"
+        "default": "tunnland",
+        "plural": "tunnland"
       }
-    },
-    "category": "area",
-    "names": [
-      "ac",
-      "ac.",
-      "acr",
-      "acr."
-    ]
+    }
   },
   {
     "key": "ha",
-    "category": "area",
-    "names": [
-      "ha"
-    ],
     "mappings": {
       "default": {
         "default": "hektar",

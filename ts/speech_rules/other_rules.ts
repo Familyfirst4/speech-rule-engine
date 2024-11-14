@@ -18,14 +18,14 @@
  * @author v.sorge@mathjax.org (Volker Sorge)
  */
 
-import { DynamicCstr } from '../rule_engine/dynamic_cstr';
-import { SpeechRuleStore } from '../rule_engine/speech_rule_store';
-import * as StoreUtil from '../rule_engine/store_util';
-
-import * as MathspeakUtil from './mathspeak_util';
-import * as NemethUtil from './nemeth_util';
-import * as NumbersUtil from './numbers_util';
-import * as SpeechRules from './speech_rules';
+import { DynamicCstr } from '../rule_engine/dynamic_cstr.js';
+import { SpeechRuleStore } from '../rule_engine/speech_rule_store.js';
+import * as StoreUtil from '../rule_engine/store_util.js';
+import * as MathspeakKoreanUtil from './mathspeak_korean_util.js';
+import * as MathspeakUtil from './mathspeak_util.js';
+import * as NemethUtil from './nemeth_util.js';
+import * as NumbersUtil from './numbers_util.js';
+import * as SpeechRules from './speech_rules.js';
 
 /**
  * Adds the custom functions for the prefix rules.
@@ -49,6 +49,12 @@ export function OtherRules() {
   SpeechRules.addStore('en.speech.emacspeak', 'en.speech.chromevox', {
     CQFvulgarFractionSmall: MathspeakUtil.isSmallVulgarFraction,
     CSFvulgarFraction: NumbersUtil.vulgarFraction
+  });
+
+  SpeechRules.addStore('ko.summary.', 'ko.speech.mathspeak', { 
+    CSFordinalConversion: MathspeakKoreanUtil.ordinalConversion,
+    CSFdecreasedOrdinalConversion: MathspeakKoreanUtil.decreasedOrdinalConversion,
+    CSFlistOrdinalConversion: MathspeakKoreanUtil.listOrdinalConversion
   });
 }
 
@@ -79,8 +85,15 @@ export function BrailleRules() {
 
       CGFtensorRules: (st: SpeechRuleStore) =>
         MathspeakUtil.generateTensorRules(st, false),
+      CTFcontentIterator: NemethUtil.contentIterator,
       CTFrelationIterator: NemethUtil.relationIterator,
       CTFimplicitIterator: NemethUtil.implicitIterator
     }
+  );
+
+  SpeechRules.addStore(
+    'euro.braille.default',
+    'nemeth.braille.default',
+    {}
   );
 }

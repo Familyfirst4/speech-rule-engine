@@ -8,12 +8,7 @@
       "default": {
         "default": "cosinus"
       }
-    },
-    "category": "Trigonometric",
-    "names": [
-      "cos",
-      "cosine"
-    ]
+    }
   },
   {
     "key": "cot",
@@ -21,11 +16,7 @@
       "default": {
         "default": "cotangens"
       }
-    },
-    "category": "Trigonometric",
-    "names": [
-      "cot"
-    ]
+    }
   },
   {
     "key": "csc",
@@ -33,11 +24,7 @@
       "default": {
         "default": "cosecans"
       }
-    },
-    "category": "Trigonometric",
-    "names": [
-      "csc"
-    ]
+    }
   },
   {
     "key": "sec",
@@ -45,11 +32,7 @@
       "default": {
         "default": "secans"
       }
-    },
-    "category": "Trigonometric",
-    "names": [
-      "sec"
-    ]
+    }
   },
   {
     "key": "sin",
@@ -57,12 +40,7 @@
       "default": {
         "default": "sinus"
       }
-    },
-    "category": "Trigonometric",
-    "names": [
-      "sin",
-      "sine"
-    ]
+    }
   },
   {
     "key": "tan",
@@ -70,18 +48,10 @@
       "default": {
         "default": "tangens"
       }
-    },
-    "category": "Trigonometric",
-    "names": [
-      "tan"
-    ]
+    }
   },
   {
     "key": "arccos",
-    "category": "Cyclometric",
-    "names": [
-      "arccos"
-    ],
     "mappings": {
       "default": {
         "default": "arcus cosinus"
@@ -90,10 +60,6 @@
   },
   {
     "key": "arccot",
-    "category": "Cyclometric",
-    "names": [
-      "arccot"
-    ],
     "mappings": {
       "default": {
         "default": "arcus cotangens"
@@ -102,10 +68,6 @@
   },
   {
     "key": "arccsc",
-    "category": "Cyclometric",
-    "names": [
-      "arccsc"
-    ],
     "mappings": {
       "default": {
         "default": "arcus cosecans"
@@ -114,10 +76,6 @@
   },
   {
     "key": "arcsec",
-    "category": "Cyclometric",
-    "names": [
-      "arcsec"
-    ],
     "mappings": {
       "default": {
         "default": "arcus secans"
@@ -126,10 +84,6 @@
   },
   {
     "key": "arcsin",
-    "category": "Cyclometric",
-    "names": [
-      "arcsin"
-    ],
     "mappings": {
       "default": {
         "default": "arcus sinus"
@@ -138,10 +92,6 @@
   },
   {
     "key": "arctan",
-    "category": "Cyclometric",
-    "names": [
-      "arctan"
-    ],
     "mappings": {
       "default": {
         "default": "arcus tangens"

@@ -18,33 +18,39 @@
  * @author volker.sorge@gmail.com (Volker Sorge)
  */
 
-import Engine from '../common/engine';
-import { Variables } from '../common/variables';
-import { Grammar } from '../rule_engine/grammar';
+import { Engine } from '../common/engine.js';
+import { Variables } from '../common/variables.js';
+import { Grammar } from '../rule_engine/grammar.js';
 
-import { ca } from './locales/locale_ca';
-import { da } from './locales/locale_da';
-import { de } from './locales/locale_de';
-import { en } from './locales/locale_en';
-import { es } from './locales/locale_es';
-import { fr } from './locales/locale_fr';
-import { hi } from './locales/locale_hi';
-import { it } from './locales/locale_it';
-import { nb } from './locales/locale_nb';
-import { nemeth } from './locales/locale_nemeth';
-import { nn } from './locales/locale_nn';
-import { sv } from './locales/locale_sv';
-import { Locale, LOCALE } from './locale';
+import { af } from './locales/locale_af.js';
+import { ca } from './locales/locale_ca.js';
+import { da } from './locales/locale_da.js';
+import { de } from './locales/locale_de.js';
+import { en } from './locales/locale_en.js';
+import { es } from './locales/locale_es.js';
+import { euro } from './locales/locale_euro.js';
+import { fr } from './locales/locale_fr.js';
+import { hi } from './locales/locale_hi.js';
+import { ko } from './locales/locale_ko.js';
+import { it } from './locales/locale_it.js';
+import { nb } from './locales/locale_nb.js';
+import { nemeth } from './locales/locale_nemeth.js';
+import { nn } from './locales/locale_nn.js';
+import { sv } from './locales/locale_sv.js';
+import { Locale, LOCALE } from './locale.js';
 
 export const locales: { [key: string]: () => Locale } = {
+  af: af,
   ca: ca,
   da: da,
   de: de,
   en: en,
   es: es,
+  euro: euro,
   fr: fr,
   hi: hi,
   it: it,
+  ko: ko,
   nb: nb,
   nn: nn,
   sv: sv,
@@ -90,7 +96,7 @@ function setSubiso(msg: Locale) {
  *
  * @returns A message object.
  */
-export function getLocale(): Locale {
+function getLocale(): Locale {
   const locale = Variables.ensureLocale(
     Engine.getInstance().locale,
     Engine.getInstance().defaultLocale

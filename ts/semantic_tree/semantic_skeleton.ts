@@ -19,15 +19,20 @@
  * @author volker.sorge@gmail.com (Volker Sorge)
  */
 
-import * as BaseUtil from '../common/base_util';
+import * as BaseUtil from '../common/base_util.js';
+import { Engine } from '../common/engine.js';
 
-import * as XpathUtil from '../common/xpath_util';
-import { Attribute as EnrichAttribute } from '../enrich_mathml/enrich_attr';
-import { SemanticType } from './semantic_meaning';
-import { SemanticNode } from './semantic_node';
-import { SemanticTree } from './semantic_tree';
+import * as XpathUtil from '../common/xpath_util.js';
+import { Attribute as EnrichAttribute } from '../enrich_mathml/enrich_attr.js';
+import { SemanticType, SemanticRole } from './semantic_meaning.js';
+import { SemanticNode } from './semantic_node.js';
+import { SemanticTree } from './semantic_tree.js';
 
 export type Sexp = number | Sexp[];
+
+const Options = {
+  tree: false
+}
 
 /**
  * @param skeleton The skeleton array.
@@ -154,11 +159,12 @@ export class SemanticSkeleton {
    * @returns The combined list.
    */
   public static combineContentChildren<T>(
-    semantic: SemanticNode,
+    type: SemanticType,
+    _role: SemanticRole,
     content: T[],
     children: T[]
   ): T[] {
-    switch (semantic.type) {
+    switch (type) {
       case SemanticType.RELSEQ:
       case SemanticType.INFIXOP:
       case SemanticType.MULTIREL:
@@ -167,16 +173,22 @@ export class SemanticSkeleton {
         return content.concat(children);
       case SemanticType.POSTFIXOP:
         return children.concat(content);
+      case SemanticType.MATRIX:
+      case SemanticType.VECTOR:
       case SemanticType.FENCED:
         children.unshift(content[0]);
         children.push(content[1]);
         return children;
+      case SemanticType.CASES:
+        children.unshift(content[0]);
+        return children;
       case SemanticType.APPL:
         return [children[0], content[0], children[1]];
       case SemanticType.ROOT:
-        return [children[1], children[0]];
+        return [children[0], children[1]];
       case SemanticType.ROW:
       case SemanticType.LINE:
+        // Adding the labels to the skeleton for explorative access.
         if (content.length) {
           children.unshift(content[0]);
         }
@@ -259,23 +271,35 @@ export class SemanticSkeleton {
    *
    * @param mml A mml node to add a structure to.
    * @param node A semantic node.
+   * @param level
+   * @param posinset
+   * @param setsize
    * @returns The sexp structure.
    */
-  private static tree_(mml: Element, node: SemanticNode): Sexp {
+  private static tree_(
+    mml: Element,
+    node: SemanticNode,
+    level = 0,
+    posinset = 1,
+    setsize = 1
+  ): Sexp {
     if (!node) {
       return [];
     }
-    if (!node.childNodes.length) {
-      return node.id;
-    }
     const id = node.id;
     const skeleton = [id];
+    XpathUtil.updateEvaluator(mml);
     const mmlChild = XpathUtil.evalXPath(
       `.//self::*[@${EnrichAttribute.ID}=${id}]`,
       mml
-    )[0];
+    )[0] as Element;
+    if (!node.childNodes.length) {
+      SemanticSkeleton.addAria(mmlChild, level, posinset, setsize);
+      return node.id;
+    }
     const children = SemanticSkeleton.combineContentChildren<SemanticNode>(
-      node,
+      node.type,
+      node.role,
       node.contentNodes.map(function (x) {
         return x;
       }),
@@ -284,12 +308,43 @@ export class SemanticSkeleton {
       })
     );
     if (mmlChild) {
-      SemanticSkeleton.addOwns_(mmlChild as Element, children);
+      SemanticSkeleton.addOwns_(mmlChild, children);
     }
-    for (let i = 0, child; (child = children[i]); i++) {
-      skeleton.push(SemanticSkeleton.tree_(mml, child) as any);
+    for (
+      let i = 0, l = children.length, child: SemanticNode;
+      (child = children[i]);
+      i++
+    ) {
+      skeleton.push(
+        SemanticSkeleton.tree_(mml, child, level + 1, i + 1, l) as any
+      );
     }
+    SemanticSkeleton.addAria(
+      mmlChild, level, posinset, setsize,
+      !Options.tree ? 'treeitem' : (level ? 'group' : 'tree')
+    );
     return skeleton;
+  }
+
+  private static addAria(
+    node: Element,
+    level: number,
+    posinset: number,
+    setsize: number,
+    role: string = !Options.tree ? 'treeitem' : 
+      (level ? 'treeitem' : 'tree')
+  ) {
+    if (!Engine.getInstance().aria || !node) {
+      return;
+    }
+    // Aria elements
+    node.setAttribute('aria-level', level.toString());
+    node.setAttribute('aria-posinset', posinset.toString());
+    node.setAttribute('aria-setsize', setsize.toString());
+    node.setAttribute('role', role);
+    if (node.hasAttribute(EnrichAttribute.OWNS)) {
+      node.setAttribute('aria-owns', node.getAttribute(EnrichAttribute.OWNS));
+    }
   }
 
   /**

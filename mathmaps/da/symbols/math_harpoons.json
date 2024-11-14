@@ -8,8 +8,7 @@
       "default": {
         "default": "venstre harpun op"
       }
-    },
-    "category": "So"
+    }
   },
   {
     "key": "21BD",
@@ -17,8 +16,7 @@
       "default": {
         "default": "venstre harpun ned"
       }
-    },
-    "category": "So"
+    }
   },
   {
     "key": "21BE",
@@ -26,8 +24,7 @@
       "default": {
         "default": "op harpun højre"
       }
-    },
-    "category": "So"
+    }
   },
   {
     "key": "21BF",
@@ -35,8 +32,7 @@
       "default": {
         "default": "op harpun venstre"
       }
-    },
-    "category": "So"
+    }
   },
   {
     "key": "21C0",
@@ -44,8 +40,7 @@
       "default": {
         "default": "højre harpun op"
       }
-    },
-    "category": "So"
+    }
   },
   {
     "key": "21C1",
@@ -53,8 +48,7 @@
       "default": {
         "default": "højre harpun ned"
       }
-    },
-    "category": "So"
+    }
   },
   {
     "key": "21C2",
@@ -62,8 +56,7 @@
       "default": {
         "default": "ned harpun højre"
       }
-    },
-    "category": "So"
+    }
   },
   {
     "key": "21C3",
@@ -71,8 +64,7 @@
       "default": {
         "default": "ned harpun venstre"
       }
-    },
-    "category": "So"
+    }
   },
   {
     "key": "21CB",
@@ -80,8 +72,7 @@
       "default": {
         "default": "venstre harpun over højre harpun"
       }
-    },
-    "category": "So"
+    }
   },
   {
     "key": "21CC",
@@ -89,8 +80,7 @@
       "default": {
         "default": "højre harpun over venstre harpun"
       }
-    },
-    "category": "So"
+    }
   },
   {
     "key": "294A",
@@ -98,8 +88,7 @@
       "default": {
         "default": "dobbelt harpun med spids op ti lvenstre og spids ned til højre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "294B",
@@ -107,11 +96,9 @@
       "default": {
         "default": "dobbelt harpun med spids ned til venstre og spids op til højre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
-    "category": "Sm",
     "key": "294C",
     "mappings": {
       "default": {
@@ -120,7 +107,6 @@
     }
   },
   {
-    "category": "Sm",
     "key": "294D",
     "mappings": {
       "default": {
@@ -134,8 +120,7 @@
       "default": {
         "default": "dobbelt harpun med spids up til venstre og spids op til højre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "294F",
@@ -143,8 +128,7 @@
       "default": {
         "default": "op ned harpun med spids mod højre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2950",
@@ -152,8 +136,7 @@
       "default": {
         "default": "dobbelt harpun med spids ned til venstre og spids ned til højre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2951",
@@ -161,8 +144,7 @@
       "default": {
         "default": "harpun op med spids mod venstre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2952",
@@ -170,8 +152,7 @@
       "default": {
         "default": "venstre harpun mod bar spids op"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2953",
@@ -179,8 +160,7 @@
       "default": {
         "default": "højre harpun mod bar spids op"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2954",
@@ -188,8 +168,7 @@
       "default": {
         "default": "harpun op mod bar med spids til højre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2955",
@@ -197,8 +176,7 @@
       "default": {
         "default": "harpun ned mod bar med spids til højre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2956",
@@ -206,8 +184,7 @@
       "default": {
         "default": "venstre harpun mod bar spids ned"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2957",
@@ -215,8 +192,7 @@
       "default": {
         "default": "højre harpun mod bar spids ned"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2958",
@@ -224,8 +200,7 @@
       "default": {
         "default": "harpun op mod bar med spids til venstre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2959",
@@ -233,8 +208,7 @@
       "default": {
         "default": "harpun ned mod bar med spids til venstre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "295A",
@@ -242,8 +216,7 @@
       "default": {
         "default": "venstre harpun fra bar med spids op"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "295B",
@@ -251,8 +224,7 @@
       "default": {
         "default": "højre harpun fra bar med spids op"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "295C",
@@ -260,8 +232,7 @@
       "default": {
         "default": "harpun op fra bar med spids mod højre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "295D",
@@ -269,8 +240,7 @@
       "default": {
         "default": "harpun ned fra bar med spids mod højre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "295E",
@@ -278,8 +248,7 @@
       "default": {
         "default": "venstre harpun fra bar med spids ned"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "295F",
@@ -287,8 +256,7 @@
       "default": {
         "default": "højre harpun fra bar med spids ned"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2960",
@@ -296,8 +264,7 @@
       "default": {
         "default": "harpun op fra bar med spids mod venstre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2961",
@@ -305,8 +272,7 @@
       "default": {
         "default": "harpun ned fra bar med spids mod venstre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2962",
@@ -314,8 +280,7 @@
       "default": {
         "default": "venstre harpun med spids op over venstre harpun med spids ned"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2963",
@@ -323,8 +288,7 @@
       "default": {
         "default": "harpun op med spids til venstre ved siden af harpun op med spids til højre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2964",
@@ -332,8 +296,7 @@
       "default": {
         "default": "højre harpun med spids op over højre harpun med spids ned"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2965",
@@ -341,8 +304,7 @@
       "default": {
         "default": "harpun op med spids mod venstre ved siden af harpun ned med spids mod højre"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2966",
@@ -350,8 +312,7 @@
       "default": {
         "default": "venstre harpun med spids op over højre harpun med spids op"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2967",
@@ -359,8 +320,7 @@
       "default": {
         "default": "venstre harpun med spids ned over højre harpun med spids ned"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2968",
@@ -368,8 +328,7 @@
       "default": {
         "default": "højre haarpun med spids op over venstre harpun med spids op"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "2969",
@@ -377,8 +336,7 @@
       "default": {
         "default": "højre harpun med spids ned over venstre harpun med spids ned"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "296A",
@@ -386,8 +344,7 @@
       "default": {
         "default": "venstre harpun over bar"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "296B",
@@ -395,8 +352,7 @@
       "default": {
         "default": "venstre harpun under bar"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "296C",
@@ -404,8 +360,7 @@
       "default": {
         "default": "højre harpun over bar"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "296D",
@@ -413,8 +368,7 @@
       "default": {
         "default": "højre harpun under bar"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "296E",
@@ -422,8 +376,7 @@
       "default": {
         "default": "harpun op harpun ned"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "296F",
@@ -431,8 +384,7 @@
       "default": {
         "default": "harpun ned harpun op"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "297C",
@@ -440,8 +392,7 @@
       "default": {
         "default": "venstre fiskekrog"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "297D",
@@ -449,8 +400,7 @@
       "default": {
         "default": "højre fiskekrog"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "297E",
@@ -458,8 +408,7 @@
       "default": {
         "default": "lodret linie med dobbelt krog"
       }
-    },
-    "category": "Sm"
+    }
   },
   {
     "key": "297F",
@@ -467,7 +416,6 @@
       "default": {
         "default": "fiskekrog ned"
       }
-    },
-    "category": "Sm"
+    }
   }
 ]

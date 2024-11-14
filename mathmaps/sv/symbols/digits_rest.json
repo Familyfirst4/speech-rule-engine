@@ -12,8 +12,7 @@
         "Exponent_Exponent": "exponent två",
         "Exponent_Ordinal": "till andra"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "00B3",
@@ -25,8 +24,7 @@
         "Exponent_Exponent": "till exponenten tre",
         "Exponent_Ordinal": "till tredje"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "00BC",
@@ -34,8 +32,7 @@
       "default": {
         "default": "rationella talet en fjärdedel"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "00BD",
@@ -43,8 +40,7 @@
       "default": {
         "default": "rationella talet en halv"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "00BE",
@@ -52,11 +48,9 @@
       "default": {
         "default": "rationella talet tre fjärdedelar"
       }
-    },
-    "category": "No"
+    }
   },
   {
-    "category": "No",
     "key": "2150",
     "mappings": {
       "default": {
@@ -65,7 +59,6 @@
     }
   },
   {
-    "category": "No",
     "key": "2151",
     "mappings": {
       "default": {
@@ -74,7 +67,6 @@
     }
   },
   {
-    "category": "No",
     "key": "2152",
     "mappings": {
       "default": {
@@ -88,8 +80,7 @@
       "default": {
         "default": "vulgar fraction one third"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "2154",
@@ -97,8 +88,7 @@
       "default": {
         "default": "vulgar fraction two thirds"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "2155",
@@ -106,8 +96,7 @@
       "default": {
         "default": "vulgar fraction one fifth"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "2156",
@@ -115,8 +104,7 @@
       "default": {
         "default": "vulgar fraction two fifths"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "2157",
@@ -124,8 +112,7 @@
       "default": {
         "default": "vulgar fraction three fifths"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "2158",
@@ -133,8 +120,7 @@
       "default": {
         "default": "vulgar fraction four fifths"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "2159",
@@ -142,8 +128,7 @@
       "default": {
         "default": "vulgar fraction one sixth"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "215A",
@@ -151,8 +136,7 @@
       "default": {
         "default": "vulgar fraction five sixths"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "215B",
@@ -160,8 +144,7 @@
       "default": {
         "default": "vulgar fraction one eighth"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "215C",
@@ -169,8 +152,7 @@
       "default": {
         "default": "vulgar fraction three eighths"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "215D",
@@ -178,8 +160,7 @@
       "default": {
         "default": "vulgar fraction five eighths"
       }
-    },
-    "category": "No"
+    }
   },
   {
     "key": "215E",
@@ -187,11 +168,9 @@
       "default": {
         "default": "vulgar fraction seven eighths"
       }
-    },
-    "category": "No"
+    }
   },
   {
-    "category": "No",
     "key": "215F",
     "mappings": {
       "default": {
@@ -200,7 +179,6 @@
     }
   },
   {
-    "category": "No",
     "key": "2189",
     "mappings": {
       "default": {
@@ -209,7 +187,6 @@
     }
   },
   {
-    "category": "No",
     "key": "3248",
     "mappings": {
       "default": {
@@ -218,7 +195,6 @@
     }
   },
   {
-    "category": "No",
     "key": "3249",
     "mappings": {
       "default": {
@@ -227,7 +203,6 @@
     }
   },
   {
-    "category": "No",
     "key": "324A",
     "mappings": {
       "default": {
@@ -236,7 +211,6 @@
     }
   },
   {
-    "category": "No",
     "key": "324B",
     "mappings": {
       "default": {
@@ -245,7 +219,6 @@
     }
   },
   {
-    "category": "No",
     "key": "324C",
     "mappings": {
       "default": {
@@ -254,7 +227,6 @@
     }
   },
   {
-    "category": "No",
     "key": "324D",
     "mappings": {
       "default": {
@@ -263,7 +235,6 @@
     }
   },
   {
-    "category": "No",
     "key": "324E",
     "mappings": {
       "default": {
@@ -272,7 +243,6 @@
     }
   },
   {
-    "category": "No",
     "key": "324F",
     "mappings": {
       "default": {

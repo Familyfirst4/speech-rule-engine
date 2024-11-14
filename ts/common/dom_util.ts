@@ -22,10 +22,10 @@
  * @author volker.sorge@gmail.com (Volker Sorge)
  */
 
-import Engine, { SREError } from './engine';
-import * as EngineConst from '../common/engine_const';
-import SystemExternal from './system_external';
-import * as XpathUtil from './xpath_util';
+import { Engine, SREError } from './engine.js';
+import * as EngineConst from '../common/engine_const.js';
+import { SystemExternal } from './system_external.js';
+import * as XpathUtil from './xpath_util.js';
 
 /**
  * Converts a NodeList into an array
@@ -47,21 +47,10 @@ export function toArray(nodeList: NodeList | NamedNodeMap): any[] {
  * @param input The XML input string.
  * @returns The string with whitespace removed between tags.
  */
-export function trimInput_(input: string): string {
+function trimInput(input: string): string {
   input = input.replace(/&nbsp;/g, ' ');
   return input.replace(/>[ \f\n\r\t\v\u200b]+</g, '><').trim();
 }
-
-/**
- * Set of XML entities.
- */
-export const XML_ENTITIES: { [key: string]: boolean } = {
-  '&lt;': true,
-  '&gt;': true,
-  '&amp;': true,
-  '&quot;': true,
-  '&apos;': true
-};
 
 /**
  * Parses the XML input string into an XML structure.
@@ -71,7 +60,7 @@ export const XML_ENTITIES: { [key: string]: boolean } = {
  */
 export function parseInput(input: string): Element {
   const dp = new SystemExternal.xmldom.DOMParser();
-  const clean_input = trimInput_(input);
+  const clean_input = trimInput(input);
   const allValues = clean_input.match(/&(?!lt|gt|amp|quot|apos)\w+;/g);
   const html = !!allValues;
   if (!clean_input) {
@@ -91,6 +80,21 @@ export function parseInput(input: string): Element {
     throw new SREError('Illegal input: ' + err.message);
   }
 }
+
+// let extIdCount = 0;
+// function addMarkers(node: Element) {
+//   if (Engine.getInstance().automark && tagName(node) !== 'STREE') {
+//     extIdCount = 0;
+//     addExtId(node);
+//   }
+//   return node;
+// }
+// function addExtId(node: Element) {
+//   if (node.nodeType === NodeType.ELEMENT_NODE) {
+//     node.setAttribute('extid', (extIdCount++).toString());
+//     toArray(node.childNodes).forEach(addExtId);
+//   }
+// }
 
 /**
  * Missing Node interface.
@@ -229,7 +233,7 @@ export function formatXml(xml: string): string {
       ) {
         split.unshift();
       }
-      node = node.slice(0, position);
+      node = node.slice(0, position) + rest;
     } else {
       // Empty tag node
       indent = 0;

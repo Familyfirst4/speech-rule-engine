@@ -18,12 +18,15 @@
  * @author volker.sorge@gmail.com (Volker Sorge)
  */
 
-import { interleaveLists } from '../common/base_util';
-import { Highlighter } from '../highlighter/highlighter';
-import { SemanticRole, SemanticType } from '../semantic_tree/semantic_meaning';
-import { SpeechGenerator } from '../speech_generator/speech_generator';
-import { AbstractWalker } from './abstract_walker';
-import { Levels } from './levels';
+import { interleaveLists } from '../common/base_util.js';
+import { Highlighter } from '../highlighter/highlighter.js';
+import {
+  SemanticRole,
+  SemanticType
+} from '../semantic_tree/semantic_meaning.js';
+import { SpeechGenerator } from '../speech_generator/speech_generator.js';
+import { AbstractWalker } from './abstract_walker.js';
+import { Levels } from './levels.js';
 
 /**
  * @override
@@ -117,7 +120,7 @@ export class SyntaxWalker extends AbstractWalker<string> {
       case SemanticType.APPL:
         return [children[0], content[0], children[1]];
       case SemanticType.ROOT:
-        return [children[1], children[0]];
+        return [children[0], children[1]];
       default:
         return children;
     }

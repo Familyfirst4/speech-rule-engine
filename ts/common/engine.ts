@@ -19,12 +19,12 @@
  * @author volker.sorge@gmail.com (Volker Sorge)
  */
 
-import { AuditoryDescription } from '../audio/auditory_description';
-import * as Dcstr from '../rule_engine/dynamic_cstr';
-import * as EngineConst from './engine_const';
+import { AuditoryDescription } from '../audio/auditory_description.js';
+import * as Dcstr from '../rule_engine/dynamic_cstr.js';
+import * as EngineConst from './engine_const.js';
 
-import { Debugger } from './debugger';
-import { Variables } from './variables';
+import { Debugger } from './debugger.js';
+import { Variables } from './variables.js';
 
 declare const SREfeature: { [key: string]: any };
 
@@ -51,11 +51,22 @@ export class SREError extends Error {
  * Initializes the basic Speech engine and contains some global context.
  *
  */
-export default class Engine {
+export class Engine {
   /**
    * Binary feature vector.
    */
-  public static BINARY_FEATURES: string[] = ['strict', 'structure', 'pprint'];
+  public static BINARY_FEATURES: string[] = [
+    'automark',
+    'mark',
+    'character',
+    'cleanpause',
+    'strict',
+    'structure',
+    'aria',
+    'pprint',
+    'cayleyshort',
+    'linebreaks'
+  ];
 
   /**
    * String feature vector.
@@ -141,7 +152,7 @@ export default class Engine {
   /**
    * Current locale.
    */
-  public locale = this.defaultLocale;
+  public locale = Dcstr.DynamicCstr.DEFAULT_VALUES[Dcstr.Axis.LOCALE];
 
   /**
    * Current subiso for the locale.
@@ -164,6 +175,27 @@ export default class Engine {
    */
   public markup: EngineConst.Markup = EngineConst.Markup.NONE;
 
+  // Markup options
+  public mark = true;
+  /**
+   * Automatic marking of elements for spans.
+   */
+  public automark = false;
+  public character = true;
+  public cleanpause = true;
+
+  /**
+   * Nemeth layout options
+   */
+  public cayleyshort = true;
+  public linebreaks = false;
+
+  /**
+   * Percentage of default rate used by external TTS. This can be used to scale
+   * pauses.
+   */
+  public rate = '100';
+
   /**
    * Current walker mode.
    */
@@ -173,6 +205,7 @@ export default class Engine {
    * Indicates if skeleton structure attributes are added to enriched elements
    */
   public structure = false;
+  public aria = false;
 
   /**
    * List of rule sets given as the constructor functions.
@@ -193,12 +226,6 @@ export default class Engine {
    * Current browser is MS Edge.
    */
   public isEdge = false;
-
-  /**
-   * Percentage of default rate used by external TTS. This can be used to scale
-   * pauses.
-   */
-  public rate = '100';
 
   /**
    * Pretty Print mode.
@@ -307,6 +334,7 @@ export default class Engine {
    * Private constructor.
    */
   private constructor() {
+    this.locale = this.defaultLocale;
     this.evaluator = Engine.defaultEvaluator;
     this.defaultParser = new Dcstr.DynamicCstrParser(
       Dcstr.DynamicCstr.DEFAULT_ORDER
@@ -366,9 +394,9 @@ function configBlocks(feature: { [key: string]: boolean | string }) {
     let inner;
     try {
       inner = scripts[i].innerHTML;
-      const config = JSON.parse(inner);
-      for (const f in config) {
-        feature[f] = config[f];
+      const config: { [key: string]: boolean | string } = JSON.parse(inner);
+      for (const [key, val] of Object.entries(config)) {
+        feature[key] = val;
       }
     } catch (err) {
       Debugger.getInstance().output('Illegal configuration ', inner);

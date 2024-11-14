@@ -19,15 +19,15 @@
  * @author volker.sorge@gmail.com (Volker Sorge)
  */
 
-import * as DomUtil from '../common/dom_util';
-import { lookupMeaning } from './semantic_attr';
+import * as DomUtil from '../common/dom_util.js';
+import { SemanticMap } from './semantic_attr.js';
 import {
   SemanticMeaning,
   SemanticFont,
   SemanticRole,
   SemanticType
-} from './semantic_meaning';
-import * as SemanticUtil from './semantic_util';
+} from './semantic_meaning.js';
+import * as SemanticUtil from './semantic_util.js';
 
 /**
  * The attributes of a semantic node.
@@ -301,10 +301,8 @@ export class SemanticNode {
    */
   private annotationXml(): string {
     const result: string[] = [];
-    for (const key in this.annotation) {
-      this.annotation[key].forEach(function (mean) {
-        result.push(key + ':' + mean);
-      });
+    for (const [key, val] of Object.entries(this.annotation)) {
+      val.forEach((mean) => result.push(key + ':' + mean));
     }
     return result.join(';');
   }
@@ -317,7 +315,7 @@ export class SemanticNode {
   public attributesXml(): string {
     const result: string[] = [];
     for (const [key, value] of Object.entries(this.attributes)) {
-      result.push(key + ':' + value);
+      result.push(key + ':' + SemanticNode.escapeValue(value));
     }
     return result.join(';');
   }
@@ -369,7 +367,7 @@ export class SemanticNode {
     if (this.textContent === content) {
       return;
     }
-    const meaning = lookupMeaning(content);
+    const meaning = SemanticMap.Meaning.get(content.replace(/\s/g, ' '));
     this.textContent = content;
     this.role = meaning.role;
     this.type = meaning.type;
@@ -581,9 +579,13 @@ export class SemanticNode {
    * @param node The XML node.
    */
   private addExternalAttributes(node: Element) {
-    for (const attr in this.attributes) {
-      node.setAttribute(attr, this.attributes[attr]);
+    for (const [attr, val] of Object.entries(this.attributes)) {
+      node.setAttribute(attr, val);
     }
+  }
+
+  private static escapeValue(value: string): string {
+    return value.replace(/;/g, '\\0003B');
   }
 
   /**
@@ -595,9 +597,9 @@ export class SemanticNode {
     if (!stateStr) return;
     const attributes = stateStr.split(';');
     for (let i = 0, l = attributes.length; i < l; i++) {
-      const [key, value] = attributes[i].split(':');
+      const [key, ...values] = attributes[i].split(':');
       if (key) {
-        this.attributes[key] = value;
+        this.attributes[key] = values.join('').replace(/\\0003B/g, ';');
       }
     }
   }
@@ -665,7 +667,7 @@ export class SemanticNode {
    */
   private addAnnotation_(domain: string, annotation: string) {
     const content = this.annotation[domain];
-    if (content) {
+    if (content && !content.includes(annotation)) {
       content.push(annotation);
     } else {
       this.annotation[domain] = [annotation];

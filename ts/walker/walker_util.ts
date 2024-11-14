@@ -18,8 +18,8 @@
  * @author volker.sorge@gmail.com (Volker Sorge)
  */
 
-import * as DomUtil from '../common/dom_util';
-import { Attribute } from '../enrich_mathml/enrich_attr';
+import * as DomUtil from '../common/dom_util.js';
+import { Attribute } from '../enrich_mathml/enrich_attr.js';
 
 /**
  * A comma separated list of attribute values.
@@ -78,4 +78,16 @@ export function getBySemanticId(root: Element, id: string): Element {
     return root;
   }
   return DomUtil.querySelectorAllByAttrValue(root, Attribute.ID, id)[0];
+}
+
+/**
+ *
+ * @param root
+ * @param id
+ */
+export function getAllBySemanticId(root: Element, id: string): Element[] {
+  if (root.getAttribute(Attribute.ID) === id) {
+    return [root];
+  }
+  return DomUtil.querySelectorAllByAttrValue(root, Attribute.ID, id);
 }

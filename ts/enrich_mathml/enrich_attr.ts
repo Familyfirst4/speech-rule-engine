@@ -21,13 +21,14 @@
  * @author volker.sorge@gmail.com (Volker Sorge)
  */
 
-import { SemanticRole } from '../semantic_tree/semantic_meaning';
-import { SemanticNode } from '../semantic_tree/semantic_node';
+import * as DomUtil from '../common/dom_util.js';
+import { SemanticRole } from '../semantic_tree/semantic_meaning.js';
+import { SemanticNode } from '../semantic_tree/semantic_node.js';
 
 /**
  * Prefix for semantic attributes.
  */
-export const Prefix = 'data-semantic-';
+const Prefix = 'data-semantic-';
 
 // TODO (TS): Do something about the prefix computation.
 /**
@@ -53,6 +54,7 @@ export enum Attribute {
   ROLE = 'data-semantic-role',
   SPEECH = 'data-semantic-speech',
   STRUCTURE = 'data-semantic-structure',
+  SUMMARY = 'data-semantic-summary',
   TYPE = 'data-semantic-type'
 }
 
@@ -76,6 +78,7 @@ export const EnrichAttributes: string[] = [
   Attribute.ROLE,
   Attribute.SPEECH,
   Attribute.STRUCTURE,
+  Attribute.SUMMARY,
   Attribute.TYPE
 ];
 
@@ -129,7 +132,7 @@ export function setAttributes(mml: Element, semantic: SemanticNode) {
  * @param mml The MathML node.
  * @param semantic The semantic tree node.
  */
-export function setPostfix(mml: Element, semantic: SemanticNode) {
+function setPostfix(mml: Element, semantic: SemanticNode) {
   const postfix = [];
   if (semantic.role === SemanticRole.MGLYPH) {
     postfix.push('image');
@@ -169,4 +172,14 @@ export function removeAttributePrefix(mml: string): string {
 // TODO (TS): Again this should have been return time Attribute
 export function addPrefix(attr: string): Attribute {
   return (Prefix + attr) as Attribute;
+}
+
+
+/**
+ * @return A newly created mrow with an added attribute.
+ */
+export function addMrow(): Element {
+  const mrow = DomUtil.createElement('mrow');
+  mrow.setAttribute(Attribute.ADDED, 'true');
+  return mrow;
 }
